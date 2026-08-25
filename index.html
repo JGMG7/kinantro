@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Antropometría</title>
+<title data-i18n="app.title">Antropometría</title>
 <meta name="description" content="Calculadora de composición corporal y somatotipo (método Heath-Carter) a partir de datos antropométricos.">
 <meta name="author" content="Dr. José Meléndez-Gallardo — ISEF, CURE, Universidad de la República">
 <meta name="theme-color" content="#0d1b2a" media="(prefers-color-scheme: dark)">
@@ -22,147 +22,183 @@
 
 <header class="app-header">
   <div class="app-header__title">
-    <h1>Antropometría</h1>
-    <p class="app-header__subtitle">Composición corporal y somatotipo (Heath&#8209;Carter)</p>
+    <h1 data-i18n="app.title">Antropometría</h1>
+    <p class="app-header__subtitle" data-i18n="app.subtitle">Composición corporal y somatotipo (Heath&#8209;Carter)</p>
   </div>
-  <button id="installBtn" class="btn btn--ghost no-print" hidden>Instalar app</button>
+  <div class="app-header__actions no-print">
+    <button id="langToggleBtn" class="btn btn--ghost" type="button">English</button>
+    <button id="installBtn" class="btn btn--ghost" hidden data-i18n="app.install">Instalar app</button>
+  </div>
 </header>
 
 <main>
 
+  <section class="card no-print measure-guide" aria-labelledby="guide-title">
+    <details id="guideDetails">
+      <summary id="guide-title" data-i18n="guide.summary">Guía de medición</summary>
+      <p class="muted" data-i18n="guide.intro">Referencia rápida de los puntos anatómicos y la técnica de cada medida, según el protocolo ISAK. Todas las medidas se toman del lado derecho del cuerpo, con el sujeto de pie y relajado; se recomienda tomar cada medida por duplicado o triplicado y usar la mediana.</p>
+
+      <h3 class="guide__group-title" data-i18n="legend.diametros">Diámetros (cm)</h3>
+      <dl class="guide__list">
+        <dt data-i18n="field.muneca">Muñeca</dt><dd data-i18n="guide.desc.muneca">Biestiloideo: distancia entre las apófisis estiloides del radio y el cúbito, con la muñeca flexionada 90°.</dd>
+        <dt data-i18n="field.humero">Húmero</dt><dd data-i18n="guide.desc.humero">Biepicondíleo: distancia entre el epicóndilo lateral y la epitróclea del húmero, con el codo flexionado 90°.</dd>
+        <dt data-i18n="field.femur">Fémur</dt><dd data-i18n="guide.desc.femur">Biepicondíleo: distancia entre el epicóndilo lateral y medial del fémur, con la rodilla flexionada 90°.</dd>
+      </dl>
+
+      <h3 class="guide__group-title" data-i18n="legend.perimetros">Perímetros (cm)</h3>
+      <dl class="guide__list">
+        <dt data-i18n="field.brCont">Br. contraído</dt><dd data-i18n="guide.desc.brCont">En el mismo punto medio, con el brazo flexionado y el bíceps contraído al máximo.</dd>
+        <dt data-i18n="field.cintura">Cintura</dt><dd data-i18n="guide.desc.cintura">En el punto de menor circunferencia del tronco, entre el último arco costal y la cresta ilíaca.</dd>
+        <dt data-i18n="field.cadera">Cadera</dt><dd data-i18n="guide.desc.cadera">En la máxima protuberancia posterior de los glúteos.</dd>
+        <dt data-i18n="field.pantMed">Pantorrilla medial</dt><dd data-i18n="guide.desc.pantMed">En el perímetro máximo de la pantorrilla.</dd>
+      </dl>
+
+      <h3 class="guide__group-title" data-i18n="legend.pliegues">Pliegues (mm)</h3>
+      <dl class="guide__list">
+        <dt data-i18n="field.trc">TRC (tríceps)</dt><dd data-i18n="guide.desc.trc">Pliegue vertical en la cara posterior del brazo, en el punto medio acromio-radial.</dd>
+        <dt data-i18n="field.ssc">SSC (subescapular)</dt><dd data-i18n="guide.desc.ssc">Pliegue oblicuo (45°), 2 cm por debajo del ángulo inferior de la escápula.</dd>
+        <dt data-i18n="field.ssp">SSP (supraespinal)</dt><dd data-i18n="guide.desc.ssp">Pliegue oblicuo, en la intersección de la línea de la cresta ilíaca con la línea axilar anterior.</dd>
+        <dt data-i18n="field.abd">ABD (abdominal)</dt><dd data-i18n="guide.desc.abd">Pliegue vertical, 5 cm a la derecha del ombligo.</dd>
+        <dt data-i18n="field.mmed">MMED (muslo anterior)</dt><dd data-i18n="guide.desc.mmed">Pliegue vertical en la línea media del muslo, en el punto medio entre el pliegue inguinal y el borde proximal de la rótula.</dd>
+        <dt data-i18n="field.pant">PANT (pantorrilla)</dt><dd data-i18n="guide.desc.pant">Pliegue vertical en la cara medial de la pantorrilla, en su perímetro máximo.</dd>
+      </dl>
+
+      <p class="muted" data-i18n="guide.disclaimer">Esta guía es un resumen orientativo y no reemplaza la formación y certificación ISAK para la toma de medidas antropométricas.</p>
+    </details>
+  </section>
+
   <section class="card no-print" aria-labelledby="form-title">
-    <h2 id="form-title">Nuevo registro</h2>
+    <h2 id="form-title" data-i18n="form.title">Nuevo registro</h2>
     <form id="subjectForm" novalidate>
 
       <fieldset>
-        <legend>Básicos</legend>
+        <legend data-i18n="legend.basicos">Básicos</legend>
         <div class="grid">
           <label class="field field--wide">
-            <span>Apellido y nombre</span>
+            <span data-i18n="field.nombre">Apellido y nombre</span>
             <input type="text" name="nombre" required autocomplete="off">
           </label>
           <label class="field">
-            <span>Sexo</span>
+            <span data-i18n="field.sexo">Sexo</span>
             <select name="sexo" required>
-              <option value="F">Femenino</option>
-              <option value="M">Masculino</option>
+              <option value="F" data-i18n="field.sexoF">Femenino</option>
+              <option value="M" data-i18n="field.sexoM">Masculino</option>
             </select>
           </label>
           <label class="field">
-            <span>Fecha de nacimiento</span>
+            <span data-i18n="field.nacimiento">Fecha de nacimiento</span>
             <input type="date" name="nacimiento" required>
           </label>
           <label class="field">
-            <span>Fecha de evaluación</span>
+            <span data-i18n="field.fecha">Fecha de evaluación</span>
             <input type="date" name="fecha" required>
           </label>
           <label class="field">
-            <span>Peso (kg)</span>
+            <span data-i18n="field.peso">Peso (kg)</span>
             <input type="number" name="peso" step="0.01" min="0" required>
           </label>
           <label class="field">
-            <span>Talla (cm)</span>
+            <span data-i18n="field.talla">Talla (cm)</span>
             <input type="number" name="talla" step="0.01" min="0" required>
           </label>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>Diámetros (cm)</legend>
+        <legend data-i18n="legend.diametros">Diámetros (cm)</legend>
         <div class="grid">
-          <label class="field"><span>Muñeca</span><input type="number" name="muneca" step="0.01" min="0" required></label>
-          <label class="field"><span>Húmero</span><input type="number" name="humero" step="0.01" min="0" required></label>
-          <label class="field"><span>Fémur</span><input type="number" name="femur" step="0.01" min="0" required></label>
+          <label class="field"><span data-i18n="field.muneca">Muñeca</span><input type="number" name="muneca" step="0.01" min="0" required></label>
+          <label class="field"><span data-i18n="field.humero">Húmero</span><input type="number" name="humero" step="0.01" min="0" required></label>
+          <label class="field"><span data-i18n="field.femur">Fémur</span><input type="number" name="femur" step="0.01" min="0" required></label>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>Perímetros (cm)</legend>
+        <legend data-i18n="legend.perimetros">Perímetros (cm)</legend>
         <div class="grid">
-          <label class="field"><span>CBZ (cabeza)</span><input type="number" name="cbz" step="0.01" min="0" required></label>
-          <label class="field"><span>Br. relajado</span><input type="number" name="brRel" step="0.01" min="0" required></label>
-          <label class="field"><span>Br. contraído</span><input type="number" name="brCont" step="0.01" min="0" required></label>
-          <label class="field"><span>Cintura</span><input type="number" name="cintura" step="0.01" min="0" required></label>
-          <label class="field"><span>Cadera</span><input type="number" name="cadera" step="0.01" min="0" required></label>
-          <label class="field"><span>Muslo anterior</span><input type="number" name="musAnt" step="0.01" min="0" required></label>
-          <label class="field"><span>Pantorrilla medial</span><input type="number" name="pantMed" step="0.01" min="0" required></label>
+          <label class="field"><span data-i18n="field.brCont">Br. contraído</span><input type="number" name="brCont" step="0.01" min="0" required></label>
+          <label class="field"><span data-i18n="field.cintura">Cintura</span><input type="number" name="cintura" step="0.01" min="0" required></label>
+          <label class="field"><span data-i18n="field.cadera">Cadera</span><input type="number" name="cadera" step="0.01" min="0" required></label>
+          <label class="field"><span data-i18n="field.pantMed">Pantorrilla medial</span><input type="number" name="pantMed" step="0.01" min="0" required></label>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>Pliegues (mm)</legend>
+        <legend data-i18n="legend.pliegues">Pliegues (mm)</legend>
         <div class="grid">
-          <label class="field"><span>TRC (tríceps)</span><input type="number" name="trc" step="0.1" min="0" required></label>
-          <label class="field"><span>SSC (subescapular)</span><input type="number" name="ssc" step="0.1" min="0" required></label>
-          <label class="field"><span>SSP (supraespinal)</span><input type="number" name="ssp" step="0.1" min="0" required></label>
-          <label class="field"><span>ABD (abdominal)</span><input type="number" name="abd" step="0.1" min="0" required></label>
-          <label class="field"><span>MMED (pierna medial)</span><input type="number" name="mmed" step="0.1" min="0" required></label>
-          <label class="field"><span>PANT (muslo)</span><input type="number" name="pant" step="0.1" min="0" required></label>
+          <label class="field"><span data-i18n="field.trc">TRC (tríceps)</span><input type="number" name="trc" step="0.1" min="0" required></label>
+          <label class="field"><span data-i18n="field.ssc">SSC (subescapular)</span><input type="number" name="ssc" step="0.1" min="0" required></label>
+          <label class="field"><span data-i18n="field.ssp">SSP (supraespinal)</span><input type="number" name="ssp" step="0.1" min="0" required></label>
+          <label class="field"><span data-i18n="field.abd">ABD (abdominal)</span><input type="number" name="abd" step="0.1" min="0" required></label>
+          <label class="field"><span data-i18n="field.mmed">MMED (muslo anterior)</span><input type="number" name="mmed" step="0.1" min="0" required></label>
+          <label class="field"><span data-i18n="field.pant">PANT (pantorrilla)</span><input type="number" name="pant" step="0.1" min="0" required></label>
         </div>
       </fieldset>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn--primary" id="saveBtn">Calcular y guardar</button>
-        <button type="button" class="btn btn--ghost" id="clearBtn">Limpiar formulario</button>
+        <button type="submit" class="btn btn--primary" id="saveBtn" data-i18n="form.save">Calcular y guardar</button>
+        <button type="button" class="btn btn--ghost" id="clearBtn" data-i18n="form.clear">Limpiar formulario</button>
       </div>
     </form>
   </section>
 
   <section class="card no-print" id="resultsCard" hidden aria-labelledby="results-title">
-    <h2 id="results-title">Resultado</h2>
+    <h2 id="results-title" data-i18n="results.title">Resultado</h2>
     <div class="results-grid" id="resultsGrid"></div>
   </section>
 
   <section class="card" aria-labelledby="chart-title">
     <div class="card__head">
-      <h2 id="chart-title">Somatocarta</h2>
+      <h2 id="chart-title" data-i18n="chart.title">Somatocarta</h2>
       <div class="legend" id="chartLegend"></div>
     </div>
     <div class="chart-wrap">
       <svg id="somatoChart" role="img" aria-label="Somatocarta: ubicación de cada sujeto según endomorfia, mesomorfia y ectomorfia"></svg>
       <div id="chartTooltip" class="tooltip" hidden></div>
     </div>
-    <p class="empty-hint" id="chartEmptyHint">Todavía no hay sujetos guardados.</p>
+    <p class="empty-hint" id="chartEmptyHint" data-i18n="common.emptyHint">Todavía no hay sujetos guardados.</p>
   </section>
 
   <section class="card" aria-labelledby="subjects-title">
     <div class="card__head">
-      <h2 id="subjects-title">Sujetos guardados</h2>
+      <h2 id="subjects-title" data-i18n="subjects.title">Sujetos guardados</h2>
       <div class="card__actions no-print">
-        <button class="btn btn--ghost btn--sm" id="printGroupBtn">Imprimir informe grupal</button>
-        <button class="btn btn--ghost btn--sm" id="exportBtn">Exportar CSV</button>
-        <button class="btn btn--danger btn--sm" id="clearAllBtn">Borrar todos</button>
+        <button class="btn btn--ghost btn--sm" id="printGroupBtn" data-i18n="subjects.printGroup">Imprimir informe grupal</button>
+        <button class="btn btn--ghost btn--sm" id="importBtn" data-i18n="subjects.import">Importar CSV</button>
+        <input type="file" id="importInput" accept=".csv,text/csv" hidden>
+        <button class="btn btn--ghost btn--sm" id="exportBtn" data-i18n="subjects.export">Exportar CSV</button>
+        <button class="btn btn--danger btn--sm" id="clearAllBtn" data-i18n="subjects.clearAll">Borrar todos</button>
       </div>
     </div>
     <div class="table-wrap">
       <table id="subjectsTable">
         <thead>
           <tr>
-            <th>Nombre</th><th>Sexo</th><th>Edad</th><th>IMC</th>
-            <th>% Grasa</th><th>Endo</th><th>Meso</th><th>Ecto</th><th class="no-print"></th>
+            <th data-i18n="subjects.colName">Nombre</th><th data-i18n="subjects.colSex">Sexo</th><th data-i18n="subjects.colAge">Edad</th><th data-i18n="subjects.colImc">IMC</th><th data-i18n="subjects.colIcc">ICC</th>
+            <th data-i18n="subjects.colFat">% Grasa</th><th data-i18n="subjects.colEndo">Endo</th><th data-i18n="subjects.colMeso">Meso</th><th data-i18n="subjects.colEcto">Ecto</th><th class="no-print"></th>
           </tr>
         </thead>
         <tbody id="subjectsBody"></tbody>
       </table>
     </div>
-    <p class="empty-hint" id="subjectsEmptyHint">Todavía no hay sujetos guardados.</p>
+    <p class="empty-hint" id="subjectsEmptyHint" data-i18n="common.emptyHint">Todavía no hay sujetos guardados.</p>
   </section>
 
   <section class="card" aria-labelledby="stats-title">
-    <h2 id="stats-title">Estadísticos del grupo</h2>
+    <h2 id="stats-title" data-i18n="stats.title">Estadísticos del grupo</h2>
     <div class="table-wrap">
       <table id="statsTable">
         <thead>
-          <tr><th></th><th>IMC</th><th>% Grasa</th><th>Endo</th><th>Meso</th><th>Ecto</th></tr>
+          <tr><th></th><th data-i18n="subjects.colImc">IMC</th><th data-i18n="subjects.colIcc">ICC</th><th data-i18n="subjects.colFat">% Grasa</th><th data-i18n="subjects.colEndo">Endo</th><th data-i18n="subjects.colMeso">Meso</th><th data-i18n="subjects.colEcto">Ecto</th></tr>
         </thead>
         <tbody id="statsBody"></tbody>
       </table>
     </div>
-    <p class="empty-hint" id="statsEmptyHint">Todavía no hay sujetos guardados.</p>
+    <p class="empty-hint" id="statsEmptyHint" data-i18n="common.emptyHint">Todavía no hay sujetos guardados.</p>
   </section>
 
   <section class="card card--muted" aria-labelledby="about-title">
-    <h2 id="about-title">Métodos y bibliografía</h2>
+    <h2 id="about-title" data-i18n="about.title">Métodos y bibliografía</h2>
     <ul class="biblio">
       <li>% Graso: ecuación de Faulkner para deportistas (1968), diferenciada por sexo. Ver nota sobre su atribución más abajo.</li>
       <li>Peso óseo: ecuación de Von Döbeln (1964), modificada por Rocha (1974).</li>
@@ -170,17 +206,17 @@
       <li>Composición corporal (4 componentes): De Rose, E.H. &amp; Guimarães, A.C.S. (1980). <em>Model for optimization of somatotype in young athletes.</em> En Ostyn, M., Beunen, G. &amp; Simons, J. (Eds.), <em>Kinanthropometry II</em>. University Park Press.</li>
       <li>Somatotipo: Carter, J.E.L. (2002). <em>The Heath–Carter Anthropometric Somatotype — Instruction Manual.</em></li>
       <li>Somatocarta (triángulo de Reuleaux): Siders, W.A. &amp; Rue, D.M. (1992). <em>Reuleaux triangle somatocharts.</em> Computers in Biology and Medicine, 22(5), 363–368. <a href="https://doi.org/10.1016/0010-4825(92)90024-H" target="_blank" rel="noopener">doi.org/10.1016/0010-4825(92)90024-H</a></li>
+      <li>Guía de medición: Marfell-Jones, M., Stewart, A. &amp; de Ridder, J. (2012). <em>International Standards for Anthropometric Assessment.</em> ISAK.</li>
       <li>Meléndez-Gallardo, J. et al. (2024). <em>Body composition and somatotype of child and adolescent athletes from the Sports Swimming School, Campus Maldonado, Uruguay.</em> Journal of Sport and Kinetic Movement, 43(I), 15–21. <a href="https://doi.org/10.52846/jskm/43.2024.1.2" target="_blank" rel="noopener">doi.org/10.52846/jskm/43.2024.1.2</a></li>
     </ul>
-    <p class="muted">Nota: la fórmula atribuida a Faulkner (1968) es señalada por parte de la literatura como originalmente derivada por Yuhasz — ver Simões Pires Neto, C. &amp; Glaner, M.F. (2007). <em>"Equação de Faulkner" para predizer a gordura corporal: o fim de um mito.</em> Revista Brasileira de Cineantropometria e Desempenho Humano, 9(2).</p>
-    <p class="muted">Basada en la planilla de cátedra del Grupo de Investigación Biofísica y Bioquímica del Ejercicio, ISEF‑CURE.</p>
+    <p class="muted" data-i18n="about.faulknerNote">Nota: la fórmula atribuida a Faulkner (1968) es señalada por parte de la literatura como originalmente derivada por Yuhasz — ver Simões Pires Neto, C. &amp; Glaner, M.F. (2007). <em>"Equação de Faulkner" para predizer a gordura corporal: o fim de um mito.</em> Revista Brasileira de Cineantropometria e Desempenho Humano, 9(2).</p>
   </section>
 
   <section class="card card--muted credits" aria-labelledby="credits-title">
-    <h2 id="credits-title">Autoría</h2>
+    <h2 id="credits-title" data-i18n="credits.title">Autoría</h2>
     <p class="credits__author">Dr. José Meléndez-Gallardo</p>
-    <p class="muted">Instituto Superior de Educación Física (ISEF) · Centro Universitario Regional del Este (CURE) · Universidad de la República (UdelaR)</p>
-    <p class="muted">Software libre bajo licencia GPL-3.0.</p>
+    <p class="muted">Grupo de Investigación Biofísica y Bioquímica del Ejercicio · Departamento de Educación Física y Salud · Instituto Superior de Educación Física (ISEF) · Centro Universitario Regional del Este (CURE) · Universidad de la República (UdelaR)</p>
+    <p class="muted" data-i18n="credits.license">Software libre bajo licencia GPL-3.0.</p>
   </section>
 
   <section id="printIndividualCard" aria-hidden="true"></section>

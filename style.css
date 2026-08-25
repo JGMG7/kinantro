@@ -97,6 +97,38 @@ main {
   color: var(--text-secondary);
   font-size: 13px;
 }
+.app-header__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Measurement guide */
+.measure-guide summary {
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: revert;
+}
+.measure-guide summary::marker { color: var(--text-muted); }
+.measure-guide[open] summary { margin-bottom: 12px; }
+.measure-guide .muted { margin: 8px 0 14px; line-height: 1.5; }
+.guide__group-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin: 16px 0 8px;
+}
+.guide__list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(140px, max-content) 1fr;
+  gap: 6px 14px;
+}
+.guide__list dt { font-weight: 600; font-size: 13px; color: var(--text-primary); }
+.guide__list dd { margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
 /* Card */
 .card {
@@ -302,6 +334,8 @@ tbody tr:hover { background: var(--surface-sunken); }
 @media (max-width: 480px) {
   .app-header { flex-direction: column; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .guide__list { grid-template-columns: 1fr; }
+  .guide__list dt { margin-top: 6px; }
 }
 
 /* Print / PDF */

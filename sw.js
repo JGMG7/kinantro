@@ -1,4 +1,4 @@
-const CACHE_NAME = 'antropometria-v1';
+const CACHE_NAME = 'antropometria-v4';
 const ASSETS = [
   './',
   './index.html',

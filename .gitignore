@@ -8,3 +8,10 @@ _edgeprofile*/
 # duplicate source images (clean copies live in icons/)
 Logo ISEF.jpg
 cropped-logos-Cure-Udelar_2.png
+
+# raw source spreadsheet — contains subjects' phone numbers (PII), never publish
+D_campus_2023.xlsx
+
+# manuscript drafts and figures — kept local, not part of the software release
+manuscrito_IJOK.md
+figures/

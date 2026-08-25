@@ -13,15 +13,19 @@ dispositivo del usuario y funciona sin conexión una vez instalada.
 ## Funcionalidades
 
 - Carga de datos básicos, diámetros, perímetros y pliegues cutáneos por sujeto.
-- Cálculo automático de: edad, IMC, suma de 6 pliegues, % graso, peso graso,
-  peso óseo, peso muscular, peso residual, y somatotipo (endo/meso/ectomorfia
-  con coordenadas X/Y).
+- Guía de medición integrada, con el punto anatómico y la técnica de cada
+  diámetro, perímetro y pliegue, según el protocolo ISAK.
+- Cálculo automático de: edad, IMC, índice cintura/cadera, suma de 6 pliegues,
+  % graso, peso graso, peso óseo, peso muscular, peso residual (en kg y como
+  % del peso corporal), y somatotipo (endo/meso/ectomorfia con coordenadas
+  X/Y).
 - Somatocarta con triángulo de Reuleaux, siguiendo la construcción clásica
   (Siders & Rue, 1992).
-- Gestión de sujetos guardados (editar, eliminar, exportar a CSV).
+- Gestión de sujetos guardados (editar, eliminar, exportar/importar CSV).
 - Estadísticos de grupo (promedio, desvío estándar, mediana, máximo, mínimo).
 - Informes imprimibles / exportables a PDF (individual y grupal), vía el
   diálogo de impresión nativo del navegador.
+- Interfaz bilingüe (español / inglés), conmutable desde el encabezado.
 - Instalable como app (PWA), con caché offline.
 
 ## Métodos y fórmulas utilizadas

@@ -33,7 +33,7 @@ dispositivo del usuario y funciona sin conexión una vez instalada.
 | Componente | Método |
 |---|---|
 | % graso | Faulkner (1968), diferenciado por sexo |
-| Peso óseo | Von Döbeln (1964), modificado por Rocha (1974) |
+| Peso óseo | Von Döbeln (1964), modificado por Rocha (1975) |
 | Peso residual | Würch — 24.1 % hombres, 20.9 % mujeres |
 | Composición corporal (4 componentes) | De Rose & Guimarães (1980) |
 | Somatotipo | Heath & Carter (Carter, 2002) |

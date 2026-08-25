@@ -354,7 +354,7 @@
       : 5.783 + 0.153 * (s.trc + s.ssc + s.ssp + s.abd);
 
     const pesoGraso = s.peso * pctGrasa / 100;
-    // Von Döbeln, modificada por Rocha (1974): usa talla² (no húmero), muñeca y fémur.
+    // Von Döbeln, modificada por Rocha (1975): usa talla² (no húmero), muñeca y fémur.
     const pesoOseo = 3.02 * Math.pow(
       (s.talla / 100) ** 2 * (s.muneca / 100) * (s.femur / 100) * 400,
       0.712

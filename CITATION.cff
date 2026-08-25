@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Si utiliza este software, por favor cítelo de la siguiente manera."
-title: "Antropometría — Composición corporal y somatotipo (Heath-Carter)"
+title: "Kinantro — Composición corporal y somatotipo (Heath-Carter)"
 type: software
 authors:
   - family-names: "Meléndez-Gallardo"
@@ -8,9 +8,9 @@ authors:
     affiliation: "Instituto Superior de Educación Física (ISEF), Centro Universitario Regional del Este (CURE), Universidad de la República (UdelaR)"
     email: "jose.melendez@cure.edu.uy"
 license: GPL-3.0-or-later
-repository-code: "https://github.com/JGMG7/antropometria-app"
+repository-code: "https://github.com/JGMG7/kinantro"
 doi: "10.5281/zenodo.22101478"
-version: 1.0.0
+version: 1.1.0
 date-released: "2026-08-25"
 keywords:
   - kinanthropometry

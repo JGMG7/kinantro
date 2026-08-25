@@ -10,7 +10,7 @@
 
   const I18N = {
     es: {
-      'app.title': 'Antropometría',
+      'app.title': 'Kinantro',
       'app.subtitle': 'Composición corporal y somatotipo (Heath‑Carter)',
       'app.install': 'Instalar app',
       'guide.summary': 'Guía de medición',
@@ -145,7 +145,7 @@
       'unit.years': 'a',
     },
     en: {
-      'app.title': 'Anthropometry',
+      'app.title': 'Kinantro',
       'app.subtitle': 'Body composition and somatotype (Heath‑Carter)',
       'app.install': 'Install app',
       'guide.summary': 'Measurement guide',

@@ -1,4 +1,4 @@
-# Antropometría — Composición corporal y somatotipo
+# Kinantro — Composición corporal y somatotipo
 
 Progressive Web App (PWA) para el cálculo de composición corporal y somatotipo
 (método Heath-Carter) a partir de datos antropométricos, basada en el protocolo
@@ -8,7 +8,7 @@ ISEF-CURE (Universidad de la República, Uruguay).
 Funciona enteramente en el navegador (sin backend), guarda los sujetos en el
 dispositivo del usuario y funciona sin conexión una vez instalada.
 
-**App en vivo:** https://jgmg7.github.io/antropometria-app/
+**App en vivo:** https://jgmg7.github.io/kinantro/
 
 ## Funcionalidades
 
@@ -44,7 +44,7 @@ detalle completo de las referencias.
 
 ## Uso
 
-La forma más simple es abrir directamente **https://jgmg7.github.io/antropometria-app/**
+La forma más simple es abrir directamente **https://jgmg7.github.io/kinantro/**
 en el navegador (celular o computadora) e instalarla desde ahí — no requiere
 crear cuenta ni instalar nada más.
 

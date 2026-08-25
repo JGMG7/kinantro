@@ -1,6 +1,6 @@
 {
-  "name": "Antropometría — Composición corporal y somatotipo",
-  "short_name": "Antropometría",
+  "name": "Kinantro — Composición corporal y somatotipo",
+  "short_name": "Kinantro",
   "description": "Calculadora de composición corporal y somatotipo (Heath-Carter) a partir de datos antropométricos.",
   "start_url": "./index.html",
   "scope": "./",
